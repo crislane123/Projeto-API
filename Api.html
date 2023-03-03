@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <title>Api-CEP</title>
+</head>
+
+<body>
+
+    <!-- cabeça -->
+    <header class="menu-principal">
+        <main>
+            <div class="header-1">
+
+                <div class="logo">
+                    <img src="./imagens/logo2.png" width="210">
+                </div>
+
+            </div>
+        </main>
+    </header>
+
+    <div class="col-100 menu-urls">
+
+        <div class="header-2">
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>||
+                    <li><a href="ApI.html">CEP</a></li>||
+                    <li><a href="Dolar.html">Dólar</a></li>||
+                    <li><a href="ApiFake.html">API-Fake</a></li>||
+                    <li><a href="clima.html">Clima</a></li> ||
+                    <li><a href="musica.html">Musica</a></li> ||
+
+                </ul>
+            </div>
+            <div class="busca">
+                <input placeholder="O que você procura?" type="text">
+
+            </div>
+        </div>
+    </div>
+    <!--  -->
+
+    <!--Showcase-->
+
+
+    <main>
+        <div class="box">
+            <form action="">
+                <fieldset>
+                    <legend class="titulo1">Consumindo API: CEP</legend>
+                    <br>
+                    <div class="inputBox">
+                        <label for="cep">CEP:</label>
+                        <input type="text" id="cep" class="inputUser" autocomplete="off">
+                    </div> <br><br>
+
+                    <div class="inputBox">
+                        <label for="rua">Rua:</label>
+                        <input type="text" id="rua" class="inputUser" readonly>
+                    </div> <br><br>
+
+                    <div class="inputBox">
+                        <label for="numero">Número:</label>
+                        <input type="text" id="numero" class="inputUser">
+                    </div> <br><br>
+
+                    <div class="inputBox">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro" class="inputUser" readonly>
+                    </div> <br><br>
+
+
+                    <div class="inputBox">
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" id="cidade" class="inputUser" readonly>
+                    </div>
+                    <br><br>
+
+                    <div class="inputBox">
+                        <label for="estado">Estado:</label>
+                        <input type="text" id="estado" class="inputUser" readonly>
+                    </div>
+                    <br><br>
+                </fieldset>
+            </form>
+        </div>
+    </main>
+
+    </main>
+
+
+
+
+    <!-- Rodapé -->
+    <footer id="footer">
+        <div class="footer-content">
+
+            <ul class="footer-menu">
+                <p>Empresa</p>
+                <li class="footer-menu-item">
+                    <a href="#">sobre</a>
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">ajuda</a>
+
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">investidores</a>
+                </li>
+            </ul>
+
+
+            <ul class="footer-menu">
+                <p>Comunidade</p>
+                <li class="footer-menu-item">
+                    <a href=""> sobre nós</a>
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">marcas</a>
+
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">for the records</a>
+
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">aplicatico móvel gratis</a>
+                </li>
+            </ul>
+
+
+            <ul class="footer-menu">
+                <p>Links úteis</p>
+                <li class="footer-menu-item">
+                    <a href="">fornecedores</a>
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">facebook</a>
+
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">instagram</a>
+                </li>
+
+                <li class="footer-menu-item">
+                    <a href="">twitter</a>
+                </li>
+            </ul>
+
+            <ul class="footer-menu">
+                <img src="imagens/mundo invertido (3).png" width="400px">
+            </ul>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
+
+
+<script>
+
+
+    //preencher os inputs com arrow functions
+    const preencherFormulario = (endereco) => {
+        document.getElementById("rua").value = endereco.logradouro;
+        document.getElementById("bairro").value = endereco.bairro;
+        document.getElementById("cidade").value = endereco.localidade;
+        document.getElementById("estado").value = endereco.uf;
+    }
+    //autopreenchimento
+    const cepValido = (cep) => {
+        if (cep.length == 8) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //buscar API
+    //Com async e await podemos trabalhar com código assíncrono em um estilo mais parecido com o bom e velho código síncrono.
+    const pesquisarCep = async () => {
+        const cep = document.getElementById("cep").value;
+        const url = `http://viacep.com.br/ws/${cep}/json/`;
+        if (cepValido(cep)) {
+            const dados = await fetch(url);
+            const endereco = await dados.json();
+            preencherFormulario(endereco);
+        }
+    }
+    document.getElementById("cep").addEventListener("focusout", pesquisarCep);
+</script>

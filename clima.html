@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="Style.css">
+    <title>Api-fake livro</title>
+</head>
+
+<body>
+
+
+    <!-- cabeça -->
+    <header class="menu-principal">
+        <main>
+            <div class="header-1">
+
+                <div class="logo">
+                    <img src="./imagens/logo2.png" width="210">
+                </div>
+
+            </div>
+        </main>
+    </header>
+
+    <div class="col-100 menu-urls">
+
+        <div class="header-2">
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>||
+                    <li><a href="ApI.html">CEP</a></li>||
+                    <li><a href="Dolar.html">Dólar</a></li>||
+                    <li><a href="ApiFake.html">API-Fake</a></li>||
+                    <li><a href="clima.html">Clima</a></li> ||
+                    <li><a href="musica.html">Musica</a></li> ||
+
+                </ul>
+            </div>
+            <div class="busca">
+                <input placeholder="O que você procura?" type="text">
+
+            </div>
+        </div>
+    </div>
+    <!--  -->
+
+
+    <main>
+        <div class="box">
+                <fieldset>
+                    <h1>Previsão do tempo - Mogi das Cruzes</h1>
+                     <p id="temperatura">Carregando...</p>
+
+                          <input type="text" id="local" class="busca2" placeholder=" Digite sua cidade ">
+                 <button class="button2" onclick="getWeather()">buscar</button>
+    
+
+                </fieldset>   
+            </div>
+        </main>
+
+
+        
+    <!-- Rodapé -->
+    <footer id="footer">
+        <div class="footer-content">
+
+            <ul class="footer-menu">
+                <p>Empresa</p>
+                <li class="footer-menu-item">
+                    <a href="#">sobre</a>
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">ajuda</a>
+
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">investidores</a>
+                </li>
+            </ul>
+
+
+            <ul class="footer-menu">
+                <p>Comunidade</p>
+                <li class="footer-menu-item">
+                    <a href=""> sobre nós</a>
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">marcas</a>
+
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">for the records</a>
+
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">aplicatico móvel gratis</a>
+                </li>
+            </ul>
+
+
+            <ul class="footer-menu">
+                <p>Links úteis</p>
+                <li class="footer-menu-item">
+                    <a href="">fornecedores</a>
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">facebook</a>
+
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">instagram</a>
+                </li>
+
+                <li class="footer-menu-item">
+                    <a href="">twitter</a>
+                </li>
+            </ul>
+
+            <ul class="footer-menu">
+                <img src="imagens/mundo invertido (3).png" width="400px">
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+<script>
+    //O CÓDIGO USA A BLIBIOTECA AXIOS PARA REALIZAR UMA AQUISIÇÃO HTTP A API DA OPENWEATHERMAP PARA OBTER A PREVISÃO DO TEMPO.
+
+    //Esta linha define a função assincrona, isso significa que a função pode esperar por uma resposta API.
+
+    async function getWeather(){
+
+        //Nesta linha estamos fazendo uma chamada a API usando a blibioteca Axios. A URL inclui informações de localização (Mogi das Cruzes) e a unidade de medida (Celsius) a chave da API (API-KEY).
+
+        var cidade = document.getElementById("local").value;
+
+        const response = await 
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&units=metric&appid=64ed82577ced7f69cb1687f0ce536131`);
+
+        //Aqui estamos e extraindo a temperatura atual (Celsius) da resposta da API e armazenando na variavel tempCelsius.
+
+        const tempCelsius = response.data.main.temp;
+
+        document.querySelector
+        ('#temperatura').innerHTML = `A temperatura ${cidade} atual é de ${tempCelsius} °C `;
+
+    }
+
+    //Chamando a função getWeather para iniciar a consulta a API.
+    getWeather();
+
+    
+
+
+
+</script>
+
+
+</html>
+
+

@@ -1,0 +1,23 @@
+{
+    "rock": {
+        "name": "Selena Gomez",
+        "album": "Album: Revival",
+        "style": "Estilo: Pop",
+        "price": "preço: R$ 50,00",
+        "image": "<img src='imagens/selena.jpg' width='350px'>"
+        },
+        "samba": {
+        "name": "Taylor",
+        "album": "Album: 1989",
+        "style": "Estilo: Pop",
+        "price": "Preço: R$ 50,00",
+        "image": "<img src='imagens/taylor.webp' width='350px'>"
+        },
+        "pop": {
+        "name": "Lana Del Rey",
+        "album": "Album: Ultraviolence",
+        "style": "Estilo: Pop",
+        "price": "Preço: R$ 50,00",
+        "image": "<img src='imagens/lanadel.jpg' width='350px'>"
+        }
+}

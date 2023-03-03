@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <title>Api-fake livro</title>
+</head>
+<body>
+
+     <!-- cabeça -->
+     <header class="menu-principal">
+        <main>
+            <div class="header-1">
+
+                <div class="logo">
+                    <img src="./imagens/logo2.png" width="210">
+                </div>
+
+            </div>
+        </main>
+    </header>
+
+    <div class="col-100 menu-urls">
+
+        <div class="header-2">
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>||
+                    <li><a href="ApI.html">CEP</a></li>||
+                    <li><a href="Dolar.html">Dólar</a></li>||
+                    <li><a href="ApiFake.html">API-Fake</a></li>||
+                    <li><a href="clima.html">Clima</a></li> ||
+                    <li><a href="musica.html">Musica</a></li> ||
+
+                </ul>
+            </div>
+            <div class="busca">
+                <input placeholder="O que você procura?" type="text">
+
+            </div>
+        </div>
+    </div>
+    <!--  -->
+
+    <main>
+        <div class="box">
+            <form action="">
+                <fieldset>
+                    <legend class="titulo1">API FAKE</legend>
+                    <br>
+               
+                    <div id="nome"></div><br>
+                    <div id="lancamento"></div><br>
+                    <div id="autora"></div><br>
+                    <div id="genero"></div><br>
+                    <div id="editora"></div><br>
+                    <div id="paginas"></div><br>
+                    <div id="resenha"></div><br>
+
+              </form>
+
+             
+            <div class="caixa">
+                <input type="button" onclick="myFunction()" value="Livro 1" class="button">
+                <input type="button" onclick="myFunction1()" value="Livro 2" class="button">
+                <input type="button" onclick="myFunction2()" value="Livro 3" class="button">
+            </div>
+          
+
+
+        </fieldset>
+    </form>
+</div>
+</main>
+
+
+
+
+
+
+    <!-- Rodapé -->
+    <footer id="footer">
+        <div class="footer-content">
+
+            <ul class="footer-menu">
+                <p>Empresa</p>
+                <li class="footer-menu-item">
+                    <a href="#">sobre</a>
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">ajuda</a>
+
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">investidores</a>
+                </li>
+            </ul>
+
+
+            <ul class="footer-menu">
+                <p>Comunidade</p>
+                <li class="footer-menu-item">
+                    <a href=""> sobre nós</a>
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">marcas</a>
+
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">for the records</a>
+
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">aplicatico móvel gratis</a>
+                </li>
+            </ul>
+
+
+            <ul class="footer-menu">
+                <p>Links úteis</p>
+                <li class="footer-menu-item">
+                    <a href="">fornecedores</a>
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">facebook</a>
+
+                </li>
+                <li class="footer-menu-item">
+                    <a href="">instagram</a>
+                </li>
+
+                <li class="footer-menu-item">
+                    <a href="">twitter</a>
+                </li>
+            </ul>
+
+            <ul class="footer-menu">
+                <img src="imagens/mundo invertido (3).png" width="400px">
+            </ul>
+        </div>
+    </footer>
+
+
+</body>
+</html>
+
+
+<script>
+    //--PESSOA1--
+//criando Array
+
+
+const json = '{"nome": "É assim que acabaca", "lancamento": "5 de fevereiro de 2018", "autora": "Colleen Hoover", "genero": "Romance romântico", "editora": "Galera", "paginas": "368", "resenha": "Um romance sobre as escolhas corretas nas situações mais difíceis. As coisas não foram sempre fáceis para Lily, mas isso nunca a impediu de conquistar a vida tão sonhada. Ela percorreu um longo caminho desde a infância, em uma cidadezinha no Maine: se formou em marketing, mudou para Boston e abriu a própria loja. Então, quando se sente atraída por um lindo neurocirurgião chamado Ryle Kincaid, tudo parece perfeito demais para ser verdade. Ryle é confiante, teimoso, talvez até um pouco arrogante e se sente atraído por Lily. Porém, sua grande aversão a relacionamentos é perturbadora. Além de estar sobrecarregada com as questões sobre seu novo relacionamento, Lily não consegue tirar Atlas Corrigan da cabeça — seu primeiro amor e a ligação com o passado que ela deixou para trás. Ele era seu protetor, alguém com quem tinha grande afinidade. Quando Atlas reaparece de repente, tudo que Lily construiu com Ryle fica em risco. Com um livro ousado e extremamente pessoal, Colleen Hoover conta uma história arrasadora, mas também inovadora, que não tem medo de discutir temas como abuso e violência doméstica. Uma narrativa inesquecível sobre um amor que custa caro demais."}';
+
+const ficha = JSON.parse(json);
+
+console.log(ficha)
+
+function myFunction(){
+    document.getElementById("nome").innerHTML = `Nome: ` + ficha.nome;
+    document.getElementById("lancamento").innerHTML = `Lançamento: ` + ficha.lancamento;
+    document.getElementById("autora").innerHTML = `Autora: ` + ficha.autora;
+    document.getElementById("genero").innerHTML = `Genêro: ` + ficha.genero;
+    document.getElementById("editora").innerHTML = `Editora: ` + ficha.editora;
+    document.getElementById("paginas").innerHTML = `Páginas: ` + ficha.paginas;
+    document.getElementById("resenha").innerHTML = `Resenha: ` + ficha.resenha;
+
+}
+
+const json2 = '{"Nome": "De Lukov, com amor", "Lancamento": "7 de janeiro de 2021", "Autora": "Mariana Zapata", "Genero": "Romance romântico", "Editora": "Charme", "Paginas": "480","Resenha": "Se alguém perguntasse a Jasmine Santos como ela descreveria os últimos anos de sua vida em uma única palavra, ela, definitivamente, usaria uma com quatro letras. Depois de dezessete anos e incontáveis promessas e ossos quebrados, ela sabe que as portas para competir na patinação artística estão começando a se fechar. Mas a oferta mais incrível de sua vida surge por meio de um cara arrogante e idiota que ela passou a última década desejando poder lançar na direção de um ônibus em movimento. Então, Jasmine compreende que precisará reconsiderar tudo. Inclusive Ivan Lukov."}'; 
+
+const ficha2 = JSON.parse(json2);
+
+console.log(ficha2)
+
+function myFunction1(){
+    document.getElementById("nome").innerHTML = `Nome: ` + ficha2.Nome;
+    document.getElementById("lancamento").innerHTML = `Lançamento: ` + ficha2.Lancamento;
+    document.getElementById("autora").innerHTML = `Autora: ` + ficha2.Autora;
+    document.getElementById("genero").innerHTML = `Genêro: ` + ficha2.Genero;
+    document.getElementById("editora").innerHTML = `Editora: ` + ficha2.Editora;
+    document.getElementById("paginas").innerHTML = `Páginas: ` + ficha2.Paginas;
+    document.getElementById("resenha").innerHTML = `Resenha: ` + ficha2.Resenha;
+
+}
+
+
+const json3 = '{"NOME": "After", "LANCAMENTO": "21 de outubro de 2014", "AUTORA": "Anna Todd", "GENERO": "Romance/Drama", "EDITORA": "Paralela", "PAGINAS": "528", "RESENHA": "Depois de bater a marca de um bilhão de acessos na plataforma de leitura Wattpad ao transformar os integrantes da banda One Direction em personagens de uma história de amor sexy, a série After vira livro e promete ser o novo fenômeno editorial. No primeiro livro, Tessa, de 18 anos, sai de casa, onde mora com a mãe, para ir para a faculdade. Até então sua vida se resumia a estudar e ir ao cinema com o namorado doce que conheceu ainda criança. No primeiro dia na faculdade, onde ela passa a dividir um quarto com uma amiga que adora festas, Tessa conhece Hardin, um jovem rude, tatuado e com piercings que implica com seu jeito de garota certinha. Logo, no entanto, os dois se envolvem e Tessa, que era virgem, vê sua sexualidade aflorar. Hardin é inspirado em Harry Styles, um dos membros do One Direction. Os outros quatro músicos da banda Zayn, Niall, Louis e Liam também viraram personagens na trama. Tessa logo descobre que Hardin possui um passado cheio de fantasmas e os dois começam um relacionamento intenso e turbulento. Depois dele, ela nunca mais será a mesma."}';
+
+const ficha3 = JSON.parse(json3);
+
+console.log(ficha3)
+
+function myFunction2(){
+    document.getElementById("nome").innerHTML = `Nome: ` + ficha3.NOME;
+    document.getElementById("lancamento").innerHTML = `Lançamento: ` + ficha3.LANCAMENTO;
+    document.getElementById("autora").innerHTML = `Autora: ` + ficha3.AUTORA;
+    document.getElementById("genero").innerHTML = `Genêro: ` + ficha3.GENERO;
+    document.getElementById("editora").innerHTML = `Editora: ` + ficha3.EDITORA;
+    document.getElementById("paginas").innerHTML = `Páginas: ` + ficha3.PAGINAS;
+    document.getElementById("resenha").innerHTML = `Resenha: ` + ficha3.RESENHA;
+
+
+}
+
+</script>
